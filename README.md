@@ -27,3 +27,17 @@
 | Get books     | `client.get({id}, cb)`    | `GET /book/{id}` |
 | Delete books  | `client.delete({id}, cb)` | `DELETE /book/{id}` |
 | Watch books   | `client.watch({})`        | N/A       |
+
+## 4. What are the main differences between REST API and gRPC?
+
+gRPC uses Protocol buffer to serialize payload data, which is binary and smaller, while REST uses JSON, which is text and larger.
+
+## 5. What is the benefits of introduce interface in front of the gRPC and REST API of the book services.
+
+//to do
+
+## 6. Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a table format as shown below.
+
+//to do
+
+## 7. Draw a component diagram representing the book services with and without interfaces.
