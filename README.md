@@ -14,8 +14,8 @@
 
 ## 2. Source codes
 
-- [gRPC](https://github.com/2110521-2563-1-Software-Architecture/TODO-assignment-1/tree/master/GRPC)
 - [Client](https://github.com/2110521-2563-1-Software-Architecture/TODO-assignment-1/tree/master/rest-client)
+- [gRPC](https://github.com/2110521-2563-1-Software-Architecture/TODO-assignment-1/tree/master/GRPC)
 - [REST](https://github.com/2110521-2563-1-Software-Architecture/TODO-assignment-1/tree/master/rest-api)
 
 ## 3. Comparation of REST and gRPC
