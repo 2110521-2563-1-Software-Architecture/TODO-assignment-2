@@ -4,7 +4,7 @@ var path = {
     listBooks : "/book",
     insertBook : "/book",
     getBook : "/book",
-    deleteBook : "/delete",
+    deleteBook : "/book",
 }
 function listBooks(){
     axios.get(path.listBooks)
@@ -55,11 +55,7 @@ function getBook(id){
     })
 }
 function deleteBook(id){
-    axios.delete(path.deleteBook,{
-        params: {
-          id: id
-        }
-      })
+    axios.delete(path.deleteBook+"/"+id)
     .then(response=>{
         console.log(response.data)
     })
