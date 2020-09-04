@@ -1,7 +1,7 @@
 import { Proxy } from '.'
 import Axios from 'axios'
 import { Book, InsertBookDTO } from './dto'
-
+///Rest?
 export class GRpcProxy implements Proxy {
   async list() {
     const { data } = await Axios.get<Book[]>('/book')
