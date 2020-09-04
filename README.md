@@ -49,3 +49,6 @@ gRPC uses Protocol buffer to serialize payload data, which is binary and smaller
 | Watch books   | `Proxy.watch()`      | N/A                  |
 
 ## 7. Draw a component diagram representing the book services with and without interfaces.
+
+![Component Diagram](./images/Component Diagram.png)
+
