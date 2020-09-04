@@ -50,5 +50,5 @@ gRPC uses Protocol buffer to serialize payload data, which is binary and smaller
 
 ## 7. Draw a component diagram representing the book services with and without interfaces.
 
-![Component Diagram](./images/Component Diagram.png)
+![Component Diagram](./images/component-diagram.png)
 
