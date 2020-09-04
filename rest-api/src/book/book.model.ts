@@ -1,16 +1,13 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
-import { ApiProperty } from '@nestjs/swagger';
+import { CreateBookDTO } from "./book.dto";
 
-@Schema()
-export class Book extends Document {
-  @ApiProperty({ required: true })
-  @Prop({ required: true })
-  title: string;
+export class Book {
+  public id: string;
+  public title: string;
+  public author: string;
 
-  @ApiProperty({ required: true })
-  @Prop({ required: true })
-  author: string;
+  constructor(bookDTO: CreateBookDTO) {
+    this.id = Date.now() + ''
+    this.title = bookDTO.title;
+    this.author = bookDTO.author;
+  }
 }
-
-export const BookSchema = SchemaFactory.createForClass(Book);
