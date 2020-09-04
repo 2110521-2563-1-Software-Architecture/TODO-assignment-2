@@ -2,19 +2,15 @@
 
 ## Members
 
-นิธิ อัศวพลากร 6031031221
+- 6031031221 นิธิ อัศวพลากร
+- 6031046721 ภูริณัฐ เทศวิเชียรชัย
+- 6031062721 อิทธิธีต์ ลีลาชุติพงศ์
+- 6031001421 กนกภัทร จินะณรงค์
+- 6031308121 ณัชพล ศรีสังข์ 
 
-ภูริณัฐ เทศวิเชียรชัย 6031046721
+## 1. Swagger screenshot
 
-อิทธิธีต์ ลีลาชุติพงศ์ 6031062721
-
-กนกภัทร จินะณรงค์ 6031001421
-
-ณัชพล ศรีสังข์ 6031308121 
-
-## 1. Swagger screenshot(s)
-
-(to be added)
+![Swagger](./images/swagger.png)
 
 ## 2. Source codes
 
@@ -26,8 +22,8 @@
 
 | Functions     | gRPC                      | REST API  |
 | ------------- | ------------------------- | --------- |
-| List books    | `client.list({}, cb)`     |
-| Insert books  | `client.insert(book, cb)` | 
-| Get books     | `client.get({id}, cb)`    |
-| Delete books  | `client.delete({id}, cb)` |
+| List books    | `client.list({}, cb)`     | `GET /book` |
+| Insert books  | `client.insert(book, cb)` | `POST /book` |
+| Get books     | `client.get({id}, cb)`    | `GET /book/{id}` |
+| Delete books  | `client.delete({id}, cb)` | `DELETE /book/{id}` |
 | Watch books   | `client.watch({})`        | N/A       |
