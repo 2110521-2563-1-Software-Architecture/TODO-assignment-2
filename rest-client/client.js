@@ -1,9 +1,9 @@
 const axios = require("axios");
 axios.defaults.baseURL = "http://localhost:3000"
 var path = {
-    listBooks : "/list",
-    insertBook : "/insert",
-    getBook : "/get",
+    listBooks : "/book",
+    insertBook : "/book",
+    getBook : "/book",
     deleteBook : "/delete",
 }
 function listBooks(){
@@ -55,7 +55,11 @@ function getBook(id){
     })
 }
 function deleteBook(id){
-    axios.delete(path.deleteBook,{id:id})
+    axios.delete(path.deleteBook,{
+        params: {
+          id: id
+        }
+      })
     .then(response=>{
         console.log(response.data)
     })
