@@ -34,7 +34,9 @@ gRPC uses Protocol buffer to serialize payload data, which is binary and smaller
 
 ## 5. What is the benefits of introduce interface in front of the gRPC and REST API of the book services.
 
-Introducing interface in front of REST and gRPC (collectively, 'Backend') allows us to easily make changes to backend without too much impact to the client side code (aka frontend)
+- The API is more clear to the user.
+- Implementation detail can be hidden from the user, less confusions and easy swapping between implementations.
+- Easier to maintain backward compatibility ex. keep the legacy interface working while building new ones.
 
 ## 6. Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a table format as shown below.
 
