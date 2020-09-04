@@ -9,14 +9,14 @@ import {
 } from '@nestjs/common';
 import { BookService } from './book.service';
 import { Book } from './book.model';
-import { UpdateBookDTO } from './book.dto';
+import { UpdateBookDTO, CreateBookDTO } from './book.dto';
 
 @Controller('book')
 export class BookController {
   constructor(private readonly service: BookService) {}
 
   @Get()
-  find(): Promise<Book[]> {
+  find() {
     return this.service.find();
   }
 
@@ -26,7 +26,7 @@ export class BookController {
   }
 
   @Post()
-  create(@Body() bookDTO: Book) {
+  create(@Body() bookDTO: CreateBookDTO) {
     return this.service.create(bookDTO);
   }
 

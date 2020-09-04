@@ -1,9 +1,16 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class UpdateBookDTO {
-  @ApiProperty({ required: false })
+export class CreateBookDTO {
+  @ApiProperty({ required: true })
   title: string;
 
-  @ApiProperty({ required: false })
+  @ApiProperty({ required: true })
   author: string;
+}
+export class UpdateBookDTO {
+  @ApiProperty()
+  title?: string;
+
+  @ApiProperty()
+  author?: string;
 }
