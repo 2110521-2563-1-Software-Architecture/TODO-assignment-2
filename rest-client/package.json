@@ -1,0 +1,10 @@
+{
+  "name": "rest-client",
+  "version": "1.0.0",
+  "description": "client interface",
+  "main": "client.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.20.0"
+  }
+}
