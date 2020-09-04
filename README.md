@@ -20,13 +20,13 @@
 
 ## 3. Comparation of REST and gRPC
 
-| Functions     | gRPC                      | REST API  |
-| ------------- | ------------------------- | --------- |
-| List books    | `client.list({}, cb)`     | `GET /book` |
-| Insert books  | `client.insert(book, cb)` | `POST /book` |
-| Get books     | `client.get({id}, cb)`    | `GET /book/{id}` |
+| Functions     | gRPC                      | REST API            |
+| ------------- | ------------------------- | ------------------- |
+| List books    | `client.list({}, cb)`     | `GET /book`         |
+| Insert books  | `client.insert(book, cb)` | `POST /book`        |
+| Get books     | `client.get({id}, cb)`    | `GET /book/{id}`    |
 | Delete books  | `client.delete({id}, cb)` | `DELETE /book/{id}` |
-| Watch books   | `client.watch({})`        | N/A       |
+| Watch books   | `client.watch({})`        | N/A                 |
 
 ## 4. What are the main differences between REST API and gRPC?
 
@@ -40,6 +40,12 @@ gRPC uses Protocol buffer to serialize payload data, which is binary and smaller
 
 ## 6. Based on the introduced interface, compare how to call the methods based on gRPC and REST API side-by-side, e.g. in a table format as shown below.
 
-//to do
+| Functions     | gRPC                 | REST API             |
+| ------------- | -------------------- | -------------------- |
+| List books    | `Proxy.list()`       | `Proxy.list()`       |
+| Insert books  | `Proxy.insert(book)` | `Proxy.insert(book)` |
+| Get books     | `Proxy.get(id)`      | `Proxy.get(id)`      |
+| Delete books  | `Proxy.delete(id)`   | `Proxy.delete(id)`   |
+| Watch books   | `Proxy.watch()`      | N/A                  |
 
 ## 7. Draw a component diagram representing the book services with and without interfaces.
