@@ -1,4 +1,4 @@
-import { Book, InsertBookDTO } from "./dto";
+import { Book, InsertBookDTO } from './dto'
 
 export interface Proxy {
   list(): Promise<Book[]>

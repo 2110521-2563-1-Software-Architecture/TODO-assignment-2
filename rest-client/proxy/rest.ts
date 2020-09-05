@@ -14,12 +14,12 @@ export class GRpcProxy implements Proxy {
   }
 
   async get(id: string) {
-    const { data } = await Axios.get<Book>('/book', { params: { id }})
+    const { data } = await Axios.get<Book>('/book', { params: { id } })
     return data
   }
 
   async delete(id: string) {
-    const { data } = await Axios.delete<Book>('/book', { params: { id }})
+    const { data } = await Axios.delete<Book>('/book', { params: { id } })
     return data
   }
 
