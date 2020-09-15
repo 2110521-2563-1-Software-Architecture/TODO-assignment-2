@@ -1,9 +1,20 @@
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 async function main() {
     var command = process.argv[2];
     var num = process.argv[3];
+    let res_list = [];
+
+    const csvWriter = createCsvWriter({
+        path: 'result.csv',
+        header: [
+            {id: 'number', title: 'Number'},
+            {id: 'time', title: 'Time'}
+        ]
+    });
+
     let exec_command = "";
     if (command == 'list')
         exec_command = "node client.js list";
@@ -13,17 +24,26 @@ async function main() {
         exec_command = "node client.js get 1";
     else if (command == 'delete')
         exec_command = "node client.js delete 1";
-    let dateTime = new Date();
-    const t1 = dateTime.getTime();
+    
     for(let i = 0;i<num;i++){
+        let dateTime = new Date();
+        const t1 = dateTime.getTime();
         const {stdout, stderr} = await exec(exec_command);
         if (i%10 == 0) console.log("stdout: " + `${stdout}`);
+        let dateTime2 = new Date();
+        const t2 = dateTime2.getTime();
+        const responseTime = t2-t1;
+        res_list.push({number: i+1, time: responseTime});
     }
-    let dateTime2 = new Date();
-    const t2 = dateTime2.getTime();
-
-    const responseTime = t2-t1;
-    console.log("Time used: " + responseTime + " milliseconds.");
+    
+    // console.log("Time used: " + responseTime + " milliseconds.");
+    
+    const records = res_list;
+    
+    csvWriter.writeRecords(records)       // returns a promise
+        .then(() => {
+            console.log('...Done');
+        });
 }
 
 main()
