@@ -23,5 +23,5 @@ export class GRpcProxy implements Proxy {
     return data
   }
 
-  async watch() {}
+  async watch() { }
 }
