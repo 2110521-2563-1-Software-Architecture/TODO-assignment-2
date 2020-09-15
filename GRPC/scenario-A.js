@@ -3,6 +3,7 @@ const exec = util.promisify(require('child_process').exec);
 
 async function main() {
     var command = process.argv[2];
+    var num = process.argv[3];
     let exec_command = "";
     if (command == 'list')
         exec_command = "node client.js list";
@@ -14,7 +15,7 @@ async function main() {
         exec_command = "node client.js delete 1";
     let dateTime = new Date();
     const t1 = dateTime.getTime();
-    for(let i = 0;i<100;i++){
+    for(let i = 0;i<num;i++){
         const {stdout, stderr} = await exec(exec_command);
         if (i%10 == 0) console.log("stdout: " + `${stdout}`);
     }
