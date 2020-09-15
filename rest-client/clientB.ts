@@ -65,9 +65,16 @@ async function deleteBook(id: string): Promise<any> {
     let res = await proxy.delete(id)
     return res
 }
-async function repeat(command) {
+async function repeat(command,clientId) {
+    console.log(command)
+    let scenario = 'B'
+    let num = clientId
+    if(clientId == -1){
+        scenario = 'A'
+         num = ''
+    }
     const csvWriter = createObjectCsvWriter({
-        path: `../result/ScenarioA_gRPC_${command}.csv`,
+        path: `../result/Scenario${scenario}${num}_gRPC_${command}.csv`,
         header: [
             { id: "callNumber", title: "Number of call" },
             { id: "responseTime", title: "Response Time" },
@@ -80,6 +87,24 @@ async function repeat(command) {
     await csvWriter
         .writeRecords(data)
         .then(() => console.log("The CSV file was written successfully"));
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+async function createClientProcess() {
+    /// scenario B
+    let commands = ['list', 'insert', 'get', 'delete']
+    // const child = spawn('pwd')
+    var children : any
+    for(let i = 0 ; i<5 ;i++){
+        let randomCommand = commands[getRandomInt(commands.length)]
+        await exec(`ts-node clientB.ts repeat ${randomCommand} ${i}`, (error, stdout, stderr) => {
+            console.log(`child${i} stdout: `+stdout)
+        })
+    }
+
 }
 
 var processName = process.argv.shift();
@@ -95,4 +120,7 @@ else if (command == 'get')
 else if (command == 'delete')
     deleteBook(process.argv[0]);
 else if (command == 'repeat')
-    repeat(process.argv[0]);
+    repeat(process.argv[0],process.argv[1]);
+else if (command == 'fork')
+// yarn ts-node clientB.ts fork
+    createClientProcess()
