@@ -8,10 +8,10 @@ async function main() {
     let res_list = [];
 
     const csvWriter = createCsvWriter({
-        path: 'result.csv',
+        path: `../result/Scenario_A_gRPC_${command}.csv`,
         header: [
-            {id: 'number', title: 'Number'},
-            {id: 'time', title: 'Time'}
+            { id: "callNumber", title: "Number of call" },
+            { id: "responseTime", title: "Response Time" },
         ]
     });
 
@@ -33,7 +33,7 @@ async function main() {
         let dateTime2 = new Date();
         const t2 = dateTime2.getTime();
         const responseTime = t2-t1;
-        res_list.push({number: i+1, time: responseTime});
+        res_list.push({callNumber: i+1, responseTime: responseTime});
     }
     
     // console.log("Time used: " + responseTime + " milliseconds.");
