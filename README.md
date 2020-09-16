@@ -20,15 +20,10 @@ b: Multiple clients with different kind of calls
   ใน scenario นี้ใช้การสร้าง client ขึ้นมาและให้ทำการเรียกฟังก์ชันแบบสุ่ม ผลลัพธ์ที่ได้จะพบว่าการเรียกฟังก์ชั้นผ่าน REST api นั้นจะใช้เวลานานกว่า GRPC จะสังเกตได้จากกราฟเวลาที่ใช้ในการเรียกฟังก์ชันนั้นของRESTนั้นจะอยู่เหนือกราฟของGRPCเป็นส่วนใหญ่ 
   
 c: Vary the number of concurrent calls from 1 to 4096 calls
+
 list function
 ![Scenario ฺC](./images/ScenarioC_list.png)
-insert function
-![Scenario ฺC](./images/ScenarioC_insert.png)
-get function
-![Scenario ฺC](./images/ScenarioC_get.png)
-delete function
-![Scenario ฺC](./images/ScenarioC_delete.png) 
-  ใน scenario นี้จะทำการเรียกฟังก์ชันเป็นจำนวน 1,2,4,8,...,4096 ครั้ง ต่อการจับเวลาหนึ่งรอบ ผลลัพธ์ที่ได้คืออัตราการเพิ่มขึ้นของเวลาที่ใช้ในการเรียกฟังก์ชันของ REST api นั้นสูงกว่าของ GRPC อย่างเห็นได้ชัด และมีส่วนที่ error เล็กน้อยคือในรูปของฟังก์ชัน insert 
+  ใน scenario นี้จะทำการเรียกฟังก์ชันเป็นจำนวน 1,2,4,8,...,4096 ครั้ง ต่อการจับเวลาหนึ่งรอบ ผลลัพธ์ที่ได้คืออัตราการเพิ่มขึ้นของเวลาที่ใช้ในการเรียกฟังก์ชันของ REST api นั้นสูงกว่าของ GRPC อย่างเห็นได้ชัด
 
 ## 2. Discussion of the results why one method is better the other in which scenarios
 
