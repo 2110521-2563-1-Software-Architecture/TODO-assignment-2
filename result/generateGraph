@@ -1,0 +1,13 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+file1 = pd.read_csv('ScenarioA_gRPC_list.csv')
+file2 = pd.read_csv('ScenarioA_REST_list.csv')
+
+# plot
+plt.plot('Number of call', 'Response Time', data=file1, linestyle='-', marker='o', color='blue', label='gRPC')
+plt.plot('Number of call', 'Response Time', data=file2, linestyle='-', marker='o', color='red', label='REST')
+plt.xlabel('Number of call')
+plt.ylabel('Response Time')
+plt.legend(loc='upper left')
+plt.show()
