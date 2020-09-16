@@ -12,7 +12,7 @@
 ## 1. Graphs showing the benchmark results wih the explanation of experimental setting
 
 a1: Single client with a small call to insert a book item
-./images/ScenarioA_insert.png
+(./images/ScenarioA_insert.png)
 จากกราฟพบว่าครั้งแรกที่การเรียกฟังก์ชัน insert จะใช้เวลานาน เมื่อเทียบกับการเรียกครั้งถัดไป และ การเรียกผ่าน GRPC นั้นทำได้เร็วกว่ากราเรียกผ่าน REST api
 a2: A bigger call to insert a list of multiple book items
 
