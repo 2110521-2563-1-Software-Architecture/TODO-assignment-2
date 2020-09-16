@@ -11,7 +11,7 @@
 
 ## 1. Graphs showing the benchmark results wih the explanation of experimental setting
 
-a1: Single client with a small call to insert a book item and a bigger call to insert a list of multiple book items
+a: Single client with a small call to insert a book item and a bigger call to insert a list of multiple book items
 ![Scenario A](./images/ScenarioA_insert.png)
   ใน scenario นี้ใช้การเรียกฟังก์ชัน insert หลายๆครั้งต่อเนื่องแทนการ insert หนังสือหลายๆเล่ม จากกราฟพบว่าครั้งแรกที่มีการเรียกฟังก์ชัน insert จะใช้เวลานานกว่าอย่างเห็นได้ชัดเมื่อเทียบกับการเรียกครั้งถัดไป และการเรียกผ่าน GRPC นั้นทำได้เร็วกว่ากราเรียกผ่าน REST api
 
@@ -27,10 +27,7 @@ list function
 
 ## 2. Discussion of the results why one method is better the other in which scenarios
 
-gRPC is faster than REST because of these following reasons
-1. 
-2. 
-3. 
+gRPC is faster than REST because of REST use HTTP/1.1 which not supports concurrent requests. But gRPC use HTTP/2 that natively supports request multiplexing, which allows for an unbounded amount of requests to be made and responded to concurrently and asynchronously.
 
 
 ## 3. Comparison of the gRPC and REST API from the aspects of language neutral, ease of use, and performance
