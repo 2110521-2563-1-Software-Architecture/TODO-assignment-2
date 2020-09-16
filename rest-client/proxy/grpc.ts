@@ -34,7 +34,7 @@ export class GRpcProxy implements Proxy {
         if (response) {
           resolve(response)
         } else {
-          console.error(error)
+          // console.error(error)
           reject(error)
         }
       }),
@@ -47,7 +47,7 @@ export class GRpcProxy implements Proxy {
         if (response) {
           resolve(response)
         } else {
-          console.error(error)
+          // console.error(error)
           reject(error)
         }
       }),
@@ -60,7 +60,7 @@ export class GRpcProxy implements Proxy {
         if (response) {
           resolve(response)
         } else {
-          console.error(error)
+          // console.error(error)
           reject(error)
         }
       }),
@@ -73,7 +73,7 @@ export class GRpcProxy implements Proxy {
         if (response) {
           resolve(response)
         } else {
-          console.error(error)
+          // console.error(error)
           reject(error)
         }
       }),

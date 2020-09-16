@@ -9,8 +9,8 @@ let data: any[] = []
 
 // Initialize a proxy here
 let proxy: Proxy
-// proxy = new GRpcProxy('localhost:50051')
-proxy = new RestProxy()
+proxy = new GRpcProxy('localhost:50051')
+// proxy = new RestProxy()
 // function ()
 // const startTime = new Date().getTime()
 // let finishTime: any
@@ -24,7 +24,7 @@ proxy = new RestProxy()
 async function recordData(callNumber: Number, command) {
     if (command == null) return
     let res: any;
-    let startTime = new Date().getTime()
+    let startTime = process.hrtime.bigint()
     try {
         if (command == "insert")
             res = await proxy.insert({ title: "A", author: "B" })
@@ -37,7 +37,7 @@ async function recordData(callNumber: Number, command) {
     } catch (error) {
         console.error(error)
     }
-    let finishTime = await new Date().getTime()
+    let finishTime = await process.hrtime.bigint()
     let responseTime = finishTime - startTime;
     data.push({ callNumber: callNumber, responseTime: responseTime })
 }
@@ -74,7 +74,7 @@ async function repeat(command,clientId) {
          num = ''
     }
     const csvWriter = createObjectCsvWriter({
-        path: `../result/Scenario${scenario}${num}_gRPC_${command}.csv`,
+        path: `../result/ScenarioB/client${num}_GRPC_${command}.csv`,
         header: [
             { id: "callNumber", title: "Number of call" },
             { id: "responseTime", title: "Response Time" },

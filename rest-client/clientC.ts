@@ -24,7 +24,7 @@ proxy = new RestProxy()
 async function recordData(callNumber: Number, command) {
     if (command == null) return
     let res: any;
-    let startTime = new Date().getTime()
+    let startTime = process.hrtime()[1]
     try {
         if (command == "insert")
             res = await proxy.insert({ title: "A", author: "B" })
@@ -37,7 +37,7 @@ async function recordData(callNumber: Number, command) {
     } catch (error) {
         console.error(error)
     }
-    let finishTime = await new Date().getTime()
+    let finishTime = await process.hrtime()[1]
     let responseTime = finishTime - startTime;
     data.push({ callNumber: callNumber, responseTime: responseTime })
 }
@@ -45,7 +45,7 @@ async function recordData(callNumber: Number, command) {
 async function listBooks(): Promise<any> {
     try {
         let res = await proxy.list()
-
+        console.log(res)
     } catch (error) {
     }
 }
@@ -108,7 +108,7 @@ async function createClientProcess() {
 async function repeat2(command, repeatTimes) {
     if (command == null) return
     const csvWriter = createObjectCsvWriter({
-        path: `../result/ScenarioC_gRPC_${command}.csv`,
+        path: `../result/ScenarioC/REST_${command}.csv`,
         header: [
             { id: "callNumber", title: "Number of call" },
             { id: "responseTime", title: "Response Time" },
@@ -116,7 +116,7 @@ async function repeat2(command, repeatTimes) {
     });
     let n = repeatTimes
     while (n >= 1) {
-        let startTime = new Date().getTime()
+        let startTime = process.hrtime.bigint()
         for (let i = 0; i < n; i++) {
             try {
                 if (command == "insert")
@@ -131,7 +131,7 @@ async function repeat2(command, repeatTimes) {
                 // console.error(error)
             }
         }
-        let finishTime = await new Date().getTime()
+        let finishTime = await process.hrtime.bigint()
         let responseTime = finishTime - startTime;
         await data.push({ callNumber: n, responseTime: responseTime })
         n = Math.floor(n / 2)

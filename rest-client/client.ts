@@ -24,20 +24,20 @@ proxy = new RestProxy()
 async function recordData(callNumber: Number, command) {
     if (command == null) return
     let res: any;
-    let startTime = new Date().getTime()
+    let startTime = process.hrtime.bigint()
     try {
         if (command == "insert")
-            res = await proxy.insert({ title: "A", author: "B" })
+            await proxy.insert({ title: "A", author: "B" })
         else if (command == 'get')
-            res = await proxy.get("125")
+            await proxy.get("125")
         else if (command == 'list')
-            res = await proxy.list()
+            await proxy.list()
         else if (command == 'delete')
-            res = await proxy.delete("124")
+            await proxy.delete("124")
     } catch (error) {
-        console.error(error)
+        // console.error(error)
     }
-    let finishTime = await new Date().getTime()
+    let finishTime = await process.hrtime.bigint()
     let responseTime = finishTime - startTime;
     data.push({ callNumber: callNumber, responseTime: responseTime })
 }
@@ -67,7 +67,7 @@ async function deleteBook(id: string): Promise<any> {
 }
 async function repeat(command) {
     const csvWriter = createObjectCsvWriter({
-        path: `../result/ScenarioA_gRPC_${command}.csv`,
+        path: `../result/ScenarioA/REST_${command}.csv`,
         header: [
             { id: "callNumber", title: "Number of call" },
             { id: "responseTime", title: "Response Time" },
