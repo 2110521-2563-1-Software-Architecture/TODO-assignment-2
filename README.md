@@ -27,7 +27,7 @@ list function
 
 ## 2. Discussion of the results why one method is better the other in which scenarios
 
-gRPC is faster than REST because of REST use HTTP/1.1 which not supports concurrent requests. But gRPC use HTTP/2 that natively supports request multiplexing, which allows for an unbounded amount of requests to be made and responded to concurrently and asynchronously.
+gRPC is faster than REST because REST use HTTP/1.1 which not supports concurrent requests. But gRPC use HTTP/2 that natively supports request multiplexing, which allows for an unbounded amount of requests to be made and responded to concurrently and asynchronously.
 
 
 ## 3. Comparison of the gRPC and REST API from the aspects of language neutral, ease of use, and performance
@@ -43,4 +43,5 @@ gRPC is faster than REST because of REST use HTTP/1.1 which not supports concurr
 ## 4. Does results comply with the results in https://medium.com/@bimeshde/grpc-vs-rest-performance-simplified-fd35d01bbd4
 
 
+Yes, our results are going the same way with the one in medium in both performance and ease of use. In term of programming language, our group use javascript for implementing while medium use goLang. 
 
